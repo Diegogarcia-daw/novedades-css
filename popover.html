@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo: :has() y Popover</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 50px;
+            padding: 50px;
+        }
+
+        h2 { 
+            color: #333; margin-bottom: 10px; 
+        }
+
+        section {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+        
+        button {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover { 
+            background: #059669;
+         }
+
+        #mi-popover {
+            border: none;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+            width: 300px;
+            text-align: center;
+            
+            transition: opacity 0.3s, transform 0.3s;
+            opacity: 0;
+            transform: scale(0.9);
+        }
+
+        #mi-popover:popover-open {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* fondo oscuro que está detras del popover */
+        #mi-popover::backdrop {
+            background-color: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(4px); 
+        }
+
+    </style>
+</head>
+<body>
+
+
+    <section>
+        <h2>Atributo Popover</h2>
+        <p>Sin Javascript, puedes cerrar clickando fuera</p>
+
+        <button popovertarget="mi-popover">
+            Abrir Información
+        </button>
+
+        <div id="mi-popover" popover>
+            <h3 style="margin-top:0;">¡Hola!</h3>
+            <p>El que lo lea que tenga un lindo dia y bendisiones.</p>
+        </div>
+    </section>
+
+</body>
+</html>

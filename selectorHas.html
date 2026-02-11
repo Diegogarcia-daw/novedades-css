@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo: :has() y Popover</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 50px;
+            padding: 50px;
+        }
+
+        h2 { 
+            color: #333; 
+            margin-bottom: 10px; 
+        }
+
+
+        p.desc { 
+            color: #666; 
+            margin-bottom: 20px;
+            font-size: 0.9rem; 
+        }
+
+        section {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+
+        
+        .card {
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.4s ease; 
+            text-align: left;
+        }
+
+        .card h3 { margin: 0 0 10px 0; }
+        
+        .toggle-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        /* Si la .card TIENE un input:checked dentro aplica los siguientes cambios: */
+        .card:has(input:checked) {
+            border-color: #6366f1;      
+            background-color: #eef2ff;  
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.25); 
+            transform: translateY(-5px); 
+        }
+
+        /* También podemos cambiar otros elementos dentro del padre */
+        .card:has(input:checked) h3 {
+            color: #6366f1; 
+        }
+       
+    </style>
+</head>
+<body>
+
+    <section>
+        <h2>1. El poder de :has()</h2>
+        <p class="desc">Marca el checkbox para estilizar al padre (.card)</p>
+
+        <div class="card">
+            <h3>Suscripción Premium</h3>
+            <p>Obtén acceso a todas las funciones exclusivas.</p>
+            
+            <label class="toggle-wrapper">
+                <input type="checkbox"> 
+                <span>Activar Premium</span>
+            </label>
+        </div>
+    </section>
+</body>
+</html>
